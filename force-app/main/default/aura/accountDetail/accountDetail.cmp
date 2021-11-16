@@ -1,0 +1,11 @@
+<aura:component controller="ApexClassController">
+
+    <br/><br/>
+    <aura:attribute name="account" type="Account" default="{'sobjectType':'Account','Name':''}"/>
+    <aura:registerEvent name="UpdateAccountList" type="c:UpdateAccountList"/>
+    <ui:inputText value="{!v.account.Name}" label="Name"/>
+    <ui:inputText value="{!v.account.Phone}" label="Phone"/>
+    <ui:inputText value="{!v.account.Description}" label="Description"/>
+    <ui:button label="Save" press="{!c.save}" />
+
+</aura:component>

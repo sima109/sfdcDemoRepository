@@ -1,0 +1,33 @@
+<aura:component controller="ApexClassController">
+<aura:handler event="c:UpdateAccountList" action="{!c.updateCount}"/>
+<div class="slds-page-header">
+  <div class="slds-grid">
+    <div class="slds-col slds-has-flexi-truncate">
+      <p class="slds-text-title--caps slds-line-height--reset">Curso formativo Lightning</p>
+      <h1 class="slds-page-header__title slds-m-right--small slds-align-middle slds-truncate" title="My Contacts">Account Detail Component</h1>
+    </div>
+  </div>
+</div>
+	<aura:attribute name="firstNumber" type="Integer" required="false" default="0"/>
+	<aura:attribute name="accountList" type="List"/>
+	<h3 class="slds-tile__title slds-truncate" title="NCuentas">Número de cuentas: {!v.firstNumber} </h3><br/>
+	<h3 class="slds-tile__title slds-truncate" title="LCuentas">Listado de cuentas: {!v.accountList} </h3><br/>
+	
+	<table class="slds-table slds-table_bordered slds-table_cell-buffer">
+        <thead>          
+            <tr class="slds-text-title_caps"> 
+                <th scope="col"><span class="slds-truncate">Account Id</span></th>
+                <th scope="col"><span class="slds-truncate">Account Name</span></th>              
+            </tr>
+        </thead>
+        <tbody>
+            <aura:iteration items="{!v.accountList}" var="account">
+                <tr>
+                    <td>{!account.Id}</td>                      
+                    <td>{!account.Name}</td>                                 
+                </tr>
+            </aura:iteration>
+        </tbody>
+    </table>
+	<ui:button aura:id="updateCount" label="Actualizar" press="{!c.updateCount}" />
+</aura:component>
